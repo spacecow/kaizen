@@ -1,0 +1,20 @@
+I made an author's name consist of only one attribte, name,
+for simplicity. A better version would be to have first name and
+last name, and even middle names.
+
+I rather handle data integrity at the data base level, instead
+of the traditional rails way - in the models. In Rails 4.2, however,
+data integrity on the data base level is made easier.
+
+Use eager loading on authors when reading in the books for
+listing, so we do not have to hit the database one time for each
+book.
+
+Add presenter to the view. I very much prefer Ryan Bates way of
+(http://railscasts.com/episodes/287-presenters-from-scratch)
+dealing with presenters to the draper gem. 
+
+A presenter can be tested in isolation without much effort. A
+view too, but with some extra work. I try to test my classes is
+isolation as much as I can, without including the rails_helper,
+since that slows down things considerably.

@@ -1,1 +1,10 @@
-<%= book.title %>
+<% present book do |presenter| %>
+
+<tr>
+  <td><%= book.id %></td>
+  <td><%= book.title %></td>
+  <td><%= presenter.author_names %></td>
+  <td><%= presenter.author_ids %></td>
+<tr>
+
+<% end %>

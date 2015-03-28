@@ -1,0 +1,12 @@
+while true; do
+  bundle exec rspec
+    spec/features/books/list_books_spec.rb
+    spec/models/authorship_spec.rb
+    spec/views/books/_book.html.erb_spec.rb
+    spec/presenters/book_presenter_spec.rb;
+  for var in 1 2 3 4 5 6 7 8 9 10; do
+    printf $var\" \";
+    sleep 1;
+  done;
+  printf \"Running specs again!\";
+done
