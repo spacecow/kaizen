@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: kaizen_development
+
+test:
+  <<: *default
+  database: kaizen_test
+
+production:
+  <<: *default
+  database: kaizen_production
+  username: kaizen
+  password: <%= ENV['KAIZEN_DATABASE_PASSWORD'] %>
