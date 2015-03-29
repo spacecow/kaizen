@@ -1,0 +1,11 @@
+<h2>Books with quantity among all shops</h2>
+<table>
+<tr>
+  <th>book id</th>
+  <th>title</th>
+  <th>quantity</th>
+</tr>
+<% @books.sort_by{|k,v| -v.size}.map(&:first).each do |key| %>
+  <%= render partial:"books/books_with_quantity", locals:{book:@books[key].first, quantity:@books[key].first.book_id.nil? ? 0 : @books[key].size} %>
+<% end %>
+</table>
