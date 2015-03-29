@@ -12,3 +12,6 @@ thomas = Author.create name:'Dave Thomas'
 Book.create([{title:'Programming Ruby'}]).each do |book|
   book.authors << thomas
 end
+
+Shop.create([{name:'Shinjuku Nishiguchi'}, {name:'Ikebukuro'}, {name:'Tokyo Yaesu'}])
+

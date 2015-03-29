@@ -6,4 +6,7 @@ FactoryGirl.define do
   factory :book do
   end
 
+  factory :shop do
+  end
+
 end
