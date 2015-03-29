@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329085332) do
+ActiveRecord::Schema.define(version: 20150329103741) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20150329085332) do
     t.datetime "updated_at"
   end
 
+  create_table "copies", force: :cascade do |t|
+    t.integer  "book_id",    limit: 4, null: false
+    t.integer  "shop_id",    limit: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "copies", ["book_id"], name: "fk_rails_6d66d5af8b", using: :btree
+  add_index "copies", ["shop_id"], name: "fk_rails_d2d0067538", using: :btree
+
   create_table "shops", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at"
@@ -41,4 +51,6 @@ ActiveRecord::Schema.define(version: 20150329085332) do
 
   add_foreign_key "authorships", "authors"
   add_foreign_key "authorships", "books"
+  add_foreign_key "copies", "books"
+  add_foreign_key "copies", "shops"
 end

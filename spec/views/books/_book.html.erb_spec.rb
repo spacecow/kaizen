@@ -15,12 +15,13 @@ describe 'books/_book.html.erb' do
   let(:filename){ File.expand_path '../../../../app/views/books/_book.html.erb', __FILE__ }
   let(:file){ File.read filename }
   let(:erb){ ERB.new file }
-  let(:book){ double :book }
-  let(:locals){{ book:book }}
+  let(:locals){{ book:book, quantity:quantity }}
   let(:ebinding){ ErbBinding.new locals }
   let(:local_bindings){ ebinding.get_bindings }
   let(:rendered){ erb.result local_bindings }
 
+  let(:quantity){ 2 }
+  let(:book){ double :book }
   let(:presenter){ double :presenter,
     author_names:'Steven Erikson', author_ids:2 }
 
@@ -51,5 +52,17 @@ describe 'books/_book.html.erb' do
   describe "forth column" do
     subject{ doc.all('td')[3] }
     its(:text){ is_expected.to eq '2' }
+  end
+
+  describe "fifth column" do
+    context "quantity is specified" do
+      subject{ doc.all('td')[4] }
+      its(:text){ is_expected.to eq '2' }
+    end
+    context "quantity is not specified" do
+      let(:quantity){ nil }
+      subject{ doc.all('td')[4] }
+      it{ is_expected.to be nil }
+    end
   end
 end

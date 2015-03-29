@@ -1,0 +1,14 @@
+<h2><%= @shop.name %></h2>
+
+<table>
+<tr>
+  <th>book id</th>
+  <th>title</th>
+  <th>author</th>
+  <th>author id</th>
+  <th>quantity</th>
+</tr>
+<% @books.keys.sort.each do |key| %>
+  <%= render @books[key].first, quantity:@books[key].size %>
+<% end %>
+</table>

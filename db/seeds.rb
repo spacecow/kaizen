@@ -1,17 +1,36 @@
 king = Author.create name:'Stephen King'
-Book.create([{title:'The Mist'}, {title:'Dream Catcher'}, {title:'The Green Mile'}]).each do |book|
-  book.authors << king
-end
+mist = Book.create title:'The Mist'
+catcher = Book.create title:'Dream Catcher'
+mile = Book.create title:'The Green Mile'
+king.books << mist
+king.books << catcher
+king.books << mile
 
 walsch = Author.create name:'Neale Donald Walsch'
-Book.create([{title:'Home with God'},{title:'Conversation with God'}]).each do |book|
-  book.authors << walsch
-end
+conversation = Book.create title:'Conversation with God'
+home = Book.create title:'Home with God'
+walsch.books << home
+walsch.books << conversation
 
 thomas = Author.create name:'Dave Thomas'
-Book.create([{title:'Programming Ruby'}]).each do |book|
-  book.authors << thomas
-end
+ruby = Book.create title:'Programming Ruby'
+thomas.books << ruby
 
-Shop.create([{name:'Shinjuku Nishiguchi'}, {name:'Ikebukuro'}, {name:'Tokyo Yaesu'}])
+shinjuku = Shop.create name:'Shinjuku Nishiguchi'
+ikebukuro = Shop.create name:'Ikebukuro'
+tokyo = Shop.create name:'Tokyo Yaesu'
 
+shinjuku.books << conversation
+shinjuku.books << conversation
+shinjuku.books << home
+shinjuku.books << catcher
+shinjuku.books << mist
+shinjuku.books << mist
+shinjuku.books << mist
+
+ikebukuro.books << conversation
+ikebukuro.books << mist
+ikebukuro.books << mist
+
+tokyo.books << catcher
+tokyo.books << mile

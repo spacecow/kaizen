@@ -6,5 +6,7 @@
   <th>author</th>
   <th>author id</th>
 </tr>
-<%= render @books %>
+<% @books.each do |book| %>
+  <%= render book, quantity:nil %>
+<% end %>
 </table>
